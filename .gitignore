@@ -1,0 +1,7 @@
+Scripts/
+Lib/
+pyvenv.cfg/
+etc/
+Include/
+share/
+quiz_generater/
