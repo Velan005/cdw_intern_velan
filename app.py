@@ -20,15 +20,3 @@ def poem_generator_app():
 
 poem_generator_app()
 
-# llm = ChatGroq(
-#     model="mixtral-8x7b-32768",
-#     temperature=1,
-#     max_tokens=None,
-#     timeout=None,
-#     max_retries=2  #for the Avoiding the failuers
-# )
-
-# llm = create_chat_groq()
-# response = llm.invoke("Hi")
-# print(response.content)
-# print (create_chat_groq())
