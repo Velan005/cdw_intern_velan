@@ -22,7 +22,7 @@ def poem_generator_prompt():
     ])
     return prompt_template
 
-def poem_generator_prompt_from_hub(template = "ishwaryaa/poem_generator"):
+def poem_generator_prompt_from_hub(template = "poem/task_poem_generater"):
     """
     Generates Prompt template from the LangSmith prompt hub
     Returns:
