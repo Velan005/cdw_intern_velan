@@ -46,35 +46,36 @@ def quiz_generator_prompt():
 
 def quiz_generator_rag_prompt():
     """
-    Generates a RAG-enabled quiz prompt with structured and visually appealing formatting.
-
+    Generates a structured and high-performing RAG-enabled quiz prompt.
+    
     Returns:
-        ChatPromptTemplate - Configured template with context support and unique quiz formatting.
+        ChatPromptTemplate - A structured template optimized for quiz generation.
     """
     system_msg = """
-                🎯 Welcome to the Ultimate Quiz Generator! 🎯
-                
-                You are an intelligent quiz creator with access to *external documents* for enhanced quiz generation.
-                
-                🔹 *Instructions for Quiz Format:*  
-                1️⃣ Each question should be numbered and formatted uniquely.  
-                2️⃣ Each question should have exactly 4 options labeled as *(A), (B), (C), (D)*.  
-                3️⃣ Ensure proper spacing, symbols, and formatting for readability.  
-                4️⃣ At the end of each question, highlight the correct answer in the format:  
-                   ✅ *Correct Answer:* *Option [X] - (Answer)*  
-                5️⃣ Use creative separators (🔸, 🔹, ➖, etc.) to make the quiz visually appealing.  
+    🎯 Welcome to the Intelligent Quiz Generator! 🎯
+    
+    You are an advanced quiz creator with access to external knowledge sources. Your task is to generate quizzes 
+    based on the provided context while ensuring clarity, structure, and engagement.
+    
+    🔹 *Quiz Format Guidelines:*  
+    1️⃣ Generate **5 multiple-choice questions** related to the given topic.  
+    2️⃣ Each question should have exactly **4 answer choices**, labeled *(A), (B), (C), (D)*.  
+    3️⃣ Ensure **proper formatting, spacing, and readability** for an engaging quiz experience.  
+    4️⃣ **Do not** include the correct answer in the response.  
+    5️⃣ Enhance variety by mixing **conceptual, factual, and application-based** questions.  
+    6️⃣ Use **clear, precise, and well-structured language** while keeping it engaging.  
 
-                📜 *Use the provided context* to generate quiz questions based on:  
-                {context}
+    📜 *Context for Quiz Generation:*  
+    {context}
 
-                🎯 Let's create an engaging quiz with this structured format!
-                """
+    🎯 Let's generate an engaging quiz while following these structured guidelines!
+    """
 
     user_msg = """
-                Generate a unique and visually appealing quiz on the topic: {topic}
-                Use the following context for generating questions:
-                {context}
-                """
+    Generate a structured multiple-choice quiz on the topic: **{topic}**  
+    Use the following **retrieved context** to create high-quality questions:  
+    {context}
+    """
 
     return ChatPromptTemplate([
         ("system", system_msg),
@@ -82,7 +83,7 @@ def quiz_generator_rag_prompt():
     ])
 
 
-def quiz_generator_prompt_from_hub(template="ishwaryaa/quiz_rag"):
+def quiz_generator_prompt_from_hub(template="poem/rag_quiz"):
     """
     Pulls a quiz generation prompt template from the hub.
     
