@@ -1,7 +1,8 @@
-
+import os
+from dotenv import load_dotenv 
 from langchain_groq import ChatGroq
 from langchain.embeddings import HuggingFaceEmbeddings
-
+load_dotenv()
 def create_chat_groq():
     """
     Function to intialize chat groq
@@ -10,8 +11,14 @@ def create_chat_groq():
     ChatGroq
     
     """
+    api_key = os.getenv("GROQ_API_KEY")  # Retrieve API key from environment
+    if not api_key:
+        raise ValueError("GROQ_API_KEY is not set. Please set it in the environment variables.")
+
+    
     return  ChatGroq(
     model="mixtral-8x7b-32768",
+    api_key=api_key,
     temperature=1,                  
     max_tokens=None,
     timeout=None,
